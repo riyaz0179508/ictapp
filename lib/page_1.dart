@@ -3,8 +3,13 @@ import 'package:ict/four_page.dart';
 import 'package:ict/page_2.dart';
 import 'package:ict/page_3.dart';
 import 'package:ict/page_5.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
+
+
 
   @override
   _FirstPageState createState() => _FirstPageState();
@@ -12,6 +17,8 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
 var _currentindex=0;
+
+
 
 final pages=[
   SecondPage(),
@@ -29,8 +36,7 @@ final pages=[
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body:
-        Stack(
+        body: Stack(
           children: [
             Positioned(
                 top: 0,
@@ -79,11 +85,86 @@ final pages=[
                   border: Border.all(width: 2,color: Color(0xff04abe7),
                   ),
                 ),
-
               ),
             ),
+
+            Column(
+              children: [
+                Padding(
+                  padding:  EdgeInsets.only(top: screenHeight*0.22, left: screenWidth*0.02, right: screenWidth*0.02),
+                  child: Container(
+                    height: screenHeight*0.26,
+                    width: screenWidth,
+                    child:
+                    ImageSlideshow(
+                      width: double.infinity,
+                      initialPage: 0,
+                      indicatorColor: Colors.blue,
+                      indicatorBackgroundColor: Colors.grey,
+                      onPageChanged: (value) {
+                        debugPrint('Page changed: $value');
+                      },
+                      autoPlayInterval: 4000,
+                      isLoop: true,
+                      children: [
+                        Image.asset(
+                          'assets/images/aa.jpeg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Image.asset(
+                          'assets/images/cc.jpg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Image.asset(
+                          'assets/images/dd.jpg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Image.asset(
+                          'assets/images/hh.jpg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Image.asset(
+                          'assets/images/ii.jpg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Image.asset(
+                          'assets/images/kk.jpeg',
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                
+                SizedBox(height: 30,),
+                
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+
+                      ElevatedButton(
+                        
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 30),
+                            primary: Color(0xffa8d7ff),
+                        ),
+
+                          onPressed: (){
+
+                          },
+                          child: Text("ICT", style: TextStyle(fontSize: 15, color: Colors.black),)
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+
           ],
         ),
+
+
 
 
 

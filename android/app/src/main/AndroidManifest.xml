@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ict">
+    <uses-permission android:name="android.permission.INTERNET" />
+
    <application
-        android:label="ict"
-        android:icon="@mipmap/ic_launcher">
+
+        android:label="ICT Divishion"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -37,5 +40,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+
+
+
+
     </application>
 </manifest>
